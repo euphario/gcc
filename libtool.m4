@@ -1186,7 +1186,7 @@ fi
 # Invoke $ECHO with all args, space-separated.
 func_echo_all ()
 {
-    $ECHO "$*" 
+    $ECHO "$*"
 }
 
 case "$ECHO" in
@@ -1825,6 +1825,11 @@ else
     lt_cv_dlopen_libs=
     lt_cv_dlopen_self=yes
     ])
+    ;;
+    
+  redox*)
+    lt_cv_dlopen="dlopen"
+    lt_cv_dlopen_libs=
     ;;
 
   *)
@@ -2655,6 +2660,16 @@ rdos*)
   dynamic_linker=no
   ;;
 
+redox*)
+  version_type=linux
+  need_lib_prefix=no
+  need_version=no
+  library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}${major} ${libname}${shared_ext}'
+  soname_spec='${libname}${release}${shared_ext}$major'
+  shlibpath_var=LD_LIBRARY_PATH
+  hardcode_into_libs=yes
+  ;;
+
 solaris*)
   version_type=linux
   need_lib_prefix=no
@@ -3217,6 +3232,10 @@ osf3* | osf4* | osf5*)
   ;;
 
 rdos*)
+  lt_cv_deplibs_check_method=pass_all
+  ;;
+
+redox*)
   lt_cv_deplibs_check_method=pass_all
   ;;
 
